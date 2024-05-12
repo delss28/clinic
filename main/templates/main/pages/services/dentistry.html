@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../../css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="../../css/swiper-bundle.min.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+        <title>«Витаминка+» - Медицинский центр</title>
+	</head>
+	<body>
+        <section>
+            <header class="header">
+                <ul class="menu-up">
+                    <li>
+                        <a href="../../index.html"><img src="../../img/logo.png" class="logo"></a>
+                    </li>
+                    <li><i>На здоровье нельзя экономить!</i></li>
+                    <li>+79028830469</li>
+                </ul>
+            </header>
+            <div class="blueline">
+                <div class="menu-box">
+                    <ul class="menu">
+                        <li><span><a href="../../index.html">Главная</a></span></li>
+                        <li><span><a href="../about.html">О нас</a></span></li>
+                        <li><span><a href="../services.html">Услуги</a></span></li>
+                        <li><span><a href="../vacancies.html">Вакансии</a></span></li>
+                        <li><span><a href="../contact.html">Контакты</a></span></li>
+                        <li><div class="button"><a href="#popup">Запись на прием</a></div></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="content"><a href="../index.html">Главная</a><a href="../services.html">/Услуги</a><a href="dentistry.html">/Стоматология</a></div>
+        <div class="service">
+            <span>Врачи</span>
+            <br>
+            Калашникова Анна Александровна, Малянов Дмитрий Николаевич.
+            <br>
+            <span>Что это?</span>
+            <br>
+            Стоматоло́гия - Раздел медицины, занимающийся изучением зубов, их строения и функционирования,
+             их заболеваний, методов их профилактики и лечения, а также болезней полости рта, челюстей и пограничных областей лица и шеи
+            <br>
+        </div>
+        </section>
+        <section>
+            <div class="blueline">
+                <i class="line">На здоровье нельзя экономить!</i>
+            </div>
+            <div class="bottom-menu">
+                <ul class="bottom-pr">
+                    <li>
+                        <a href="../../index.html"><img src="../../img/logo.png" class="logo-2"></a>
+                        <br>
+                        Copyright @2023 Витаминка+
+                    </li>
+                    <li><ul class="bottom-list">
+                        <li><div class="word-a">Компания Витаминка+</div></li>
+                        <li><a href="../../index.html">Главная</a></li>
+                        <li><a href="../about.html">О нас</a></li>
+                        <li><a href="../services.html">Услуги</a></li>
+                        <li><a href="../vacancies.html">Вакансии</a></li>
+                        <li><a href="../contact.html">Контакты</a></li>
+                    </ul></li>
+                    <li>Цены, указанные на сайте, не являются публичной офертой. 
+                        Стоимость услуг устанавливается и оплачивается согласно прейскуранту поликлиники, 
+                        действующему на момент оказания соответствующей услуги.
+                        С точной информацией по стоимости услуг можно ознакомится по телефону
+                        +79028830469</li>
+                </ul>
+            </div>
+            <div class="bottom"> 
+                <div class="button button-admin"><a href="#popup_admin">Вход как администратор</a></div>
+            </div>
+        </section>
+        <section>
+            <div id="popup" class="popup">
+                <a href="#header" class="popup_area"></a>
+                <div class="popup_body">
+                    <div class="popup_content">
+                        <a href="#header" class="popup_close"><img src="../../img/cancel.jpg" class="cancel" align="right"></a>
+                        <div class="popup_title">Запись на прием</div>
+                        <div class="text-field">
+                            <form name="registrationForm" method="post" onsubmit="return validateForm()">
+                                <label class="text-field__label">Фамилия:</label>
+                                <input placeholder="Surname" class="text-field__input" type="text" name="Secondname" required>
+                                <label class="text-field__label">Имя:</label>
+                                <input placeholder="Name" class="text-field__input" type="text" name="Firstname" required>
+                                <label class="text-field__label">Отчество:</label>
+                                <label class="text-field__label agree">У меня нет отчества</label>
+                                <input type="checkbox" name="Agreement" onclick="agreeForm(this.form)" >
+                                <input placeholder="Patronymic" class="text-field__input" type="text" name="Patronymic" required>
+                                <label for="services" class="text-field__label ">Выберите услугу:</label>
+                                <select id="services" class="text-field__label " name="Сlient_services" required>
+                                    <option value="ЛОР">ЛОР</option>
+                                    <option value="Хирургия">Хирургия</option>
+                                    <option value="Гинекология">Гинекология</option>
+                                    <option value="Аллергология-иммунология">Аллергология-иммунология</option>
+                                    <option value="Стоматология">Стоматология</option>
+                                    <option value="Офтальмология">Офтальмология</option>
+                                    <option value="Инфекционист">Инфекционист</option>
+                                    <option value="Гастроэнторология">Гастроэнторология</option>
+                                    <option value="УЗИ диагностика">УЗИ диагностика</option>
+                                    <option value="Кардиология">Кардиология</option>
+                                    <option value="Эндокринология">Эндокринология</option>
+                                    <option value="Физиотерапия">Физиотерапия</option>
+                                    <option value="Психиатрия">Психиатрия</option>
+                                    <option value="Генетик">Генетик</option>
+                                    <option value="Дерматология">Дерматология</option>
+                                    <option value="Неврология">Неврология</option>
+                                    <option value="Эндоскопия">Эндоскопия</option>
+                                    <option value="Травматология-ортопедия">Травматология-ортопедия</option>
+                                </select>
+                                <label class="text-field__label">Выберите дату:</label> 
+                                <input type="date" class="agree" name="date" required>
+                                <label class="text-field__label">Контактная почта/телефон:</label>
+                                <input placeholder="Contact email/number" class="text-field__input" type="text" name="Number_email" required>
+                                <input type="submit"  value="Записаться" class="submit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="popup_admin" class="popup">
+                <a href="#header" class="popup_area"></a>
+                <div class="popup_body">
+                    <div class="popup_content">
+                        <a href="#header" class="popup_close"><img src="../../img/cancel.jpg" class="cancel" align="right"></a>
+                        <div class="popup_title">Авторизация</div>
+                        <form name="registrationFormm" method="post" onsubmit="return validateFormm()">
+                            <label class="text-field__label">Логин</label>
+                            
+                            <input placeholder="Login" type="text" class="text-field__input" name="Login" required>
+                            
+                            <label class="text-field__label">Пароль</label>
+                            
+                            <input placeholder="Password" type="text" class="text-field__input" name="Password" required>
+                            
+                            <input type="submit" value="Войти" class="submit" >
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="../../js/swiper-bundle.min.js"></script>
+        <script src="../../js/script.js"></script>
+	</body>
+</html>
+
+
