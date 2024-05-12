@@ -4,24 +4,9 @@
         <section>
             <div class="content"><a href="{% url 'main:home' %}">Главная</a><a href="{% url 'services:index' %}">/Услуги</a></div>
         <div class="services">
-            <a href="{% url 'services:service' %}">ЛОР</a>
-            <a href="services/surgery.html">Хирургия</a>
-            <a href="services/gynecology.html">Гинекология</a>
-            <a href="services/allergology-immunology.html">Аллергология-иммунология</a>
-            <a href="services/dentistry.html">Стоматология</a>
-            <a href="services/ophthalmology.html">Офтальмология</a>
-            <a href="services/infectious disease specialist.html">Инфекционист</a>
-            <a href="services/gastroentorology.html">Гастроэнторология</a>
-            <a href="services/ultrasound diagnostics.html">УЗИ диагностика</a>
-            <a href="services/cardiology.html">Кардиология</a>
-            <a href="services/endocrinology.html">Эндокринология</a>
-            <a href="services/physiotherapy.html">Физиотерапия</a>
-            <a href="services/psychiatry.html">Психиатрия</a>
-            <a href="services/geneticist.html">Генетик</a>
-            <a href="services/dermatology.html">Дерматология</a>
-            <a href="services/neurology.html">Неврология</a>
-            <a href="services/endoscopy.html">Эндоскопия</a>
-            <a href="services/traumatology-orthopedics.html">Травматология-ортопедия</a>
+            {% for service in services %}
+                <a href="{% url 'services:service' %}">{{ service.name }}</a>
+            {% endfor %}
         </div>
         </section>
         {% endblock content %}
