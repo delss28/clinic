@@ -2,9 +2,9 @@
 {% load static %}
 {% block content %}
         <section>
-            <div class="content"><a href="{% url 'main:home' %}">Главная</a><a href="{% url 'main:services' %}">/Услуги</a></div>
+            <div class="content"><a href="{% url 'main:home' %}">Главная</a><a href="{% url 'services:index' %}">/Услуги</a></div>
         <div class="services">
-            <a href="services/ENT.html">ЛОР</a>
+            <a href="{% url 'services:service' %}">ЛОР</a>
             <a href="services/surgery.html">Хирургия</a>
             <a href="services/gynecology.html">Гинекология</a>
             <a href="services/allergology-immunology.html">Аллергология-иммунология</a>

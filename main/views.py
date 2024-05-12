@@ -6,8 +6,6 @@ def about(reguest):
     return render(reguest,'main/pages/about.html')
 def contact(reguest):
     return render(reguest,'main/pages/contact.html')
-def services(reguest):
-    return render(reguest,'main/pages/services.html')
 def vacancies(reguest):
     return render(reguest,'main/pages/vacancies.html')
 # Create your views here.
