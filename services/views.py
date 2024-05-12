@@ -1,30 +1,17 @@
 from django.shortcuts import render
 
+from main.models import Service
+
 # Create your views here.
 def services(reguest):
-    context = {
-        'services': [
-        {'name': 'ЛОР'},
-        {'name':'Хирургия'},
-        {'name':'Гинекология'},
-        {'name':'Аллергология-иммунология'},
-        {'name':'Стоматология'},
-        {'name':'Офтальмология'},
-        {'name':'Инфекционист'},
-        {'name':'Гастроэнторология'},
-        {'name':'УЗИ диагностика'},
-        {'name':'Кардиология'},
-        {'name':'Эндокринология'},
-        {'name':'Физиотерапия'},
-        {'name':'Психиатрия'},
-        {'name':'Генетик'},
-        {'name':'Дерматология'},
-        {'name':'Неврология'},
-        {'name':'Эндоскопия'},
-        {'name':'Травматология-ортопедия'},
-        ],
-    }
-    return render(reguest,'services/services.html',context)
+    return render(reguest,'services/services.html')
 
-def service(reguest):
-    return render(reguest,'services/service.html')
+def service(reguest, service_slug):
+
+    service = Service.objects.get(slug=service_slug)
+
+    context = {
+        'service': service
+    }
+
+    return render(reguest,'services/service.html', context)

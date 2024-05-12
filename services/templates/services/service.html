@@ -1,17 +1,19 @@
 {% extends "main/base.html" %}
 {% load static %}
+{% load services_tags %}
+
 {% block content %}
 <section>
-    <div class="content"><a href="../index.html">Главная</a><a href="../services.html">/Услуги</a><a href="ENT.html">/ЛОР</a></div>
+    {% tag_services as services %}
+    <div class="content"><a href="{% url 'main:home' %}">Главная</a><a href="{% url 'services:index' %}">/Услуги</a><a href="#">/{{ service.title }}</a></div>
 <div class="service">
     <span>Врачи</span>
     <br>
-    Лаврентьева Наталья Борисовна, Мурановкина Наталья Вячеславовна.
+    {{ service.id_doctor  }}
     <br>
     <span>Кто это?</span>
     <br>
-    Оториноларинголо́гия или ЛОР (также часто отоларинголо́гия) — раздел медицины и медицинская специальность, которая специализируется на диагностике и 
-    лечении патологий уха, горла, носа, а также головы и шеи.
+    {{ service.description }}
     <br>
 </div>
 </section>

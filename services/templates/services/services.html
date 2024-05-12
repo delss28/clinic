@@ -1,13 +1,15 @@
 {% extends "main/base.html" %}
 {% load static %}
+{% load services_tags %}
+
 {% block content %}
         <section>
             <div class="content"><a href="{% url 'main:home' %}">Главная</a><a href="{% url 'services:index' %}">/Услуги</a></div>
         <div class="services">
+            {% tag_services as services %}
             {% for service in services %}
-                <a href="{% url 'services:service' %}">{{ service.name }}</a>
+                <a href="{% url 'services:service' service.slug %}">{{ service.title }}</a>
             {% endfor %}
         </div>
         </section>
         {% endblock content %}
-
