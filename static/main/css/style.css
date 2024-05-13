@@ -5,7 +5,7 @@ body{
     font-family: 'Asap', sans-serif;
     color: #505050;
     line-height: 1.5;
-    font-size: calc(11px + (4 + 4 * 0.7) * ((100vw - 320px) / 1280));;
+    font-size: calc(10px + (4 + 4 * 0.7) * ((100vw - 320px) / 1280));;
     
 }
 .header{
@@ -430,4 +430,33 @@ body{
 }
 .service span{
     font-weight: 600;
+}
+
+
+.pagination {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.pagination a {
+    color: #505050;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.pagination a.active {
+    background-color: #3C9DD0;
+    color: white;
+    
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.pagination a:not(.active) {
+    font-size:calc(11px + (4 + 4 * 0.7) * ((100vw - 320px) / 1280));
+
 }

@@ -1,17 +1,27 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
 
 from main.models import Service
 
 # Create your views here.
-def services(reguest):
-    return render(reguest,'services/services.html')
+def services(request, services_slug=None):
+    services = Service.objects.all()
 
-def service(reguest, service_slug):
+    paginator = Paginator(services,3)
+    page = request.GET.get('page', 1)
 
-    service = Service.objects.get(slug=service_slug)
+    current_page = paginator.page(int(page))
 
     context = {
-        'service': service
+        'services': current_page,
+        "slug_url": services_slug
     }
+  
+    return render(request,'services/services.html', context)
 
-    return render(reguest,'services/service.html', context)
+def service(request, service_slug):
+    service = Service.objects.get(slug=service_slug)
+
+    context = {'service': service}
+
+    return render(request,'services/service.html', context)
