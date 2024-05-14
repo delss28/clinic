@@ -1,51 +1,46 @@
+{% load static %}
+{% load services_tags %}
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="../../css/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="../../css/swiper-bundle.min.css"/>
         <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
         <title>«Витаминка+» - Медицинский центр</title>
+        <link rel="icon" href="{% static "main/img/favicon.ico" %}" type="image/x-icon">
+        <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'main/css/swiper-bundle.min.css' %}"/>
 	</head>
 	<body>
         <section>
             <header class="header">
                 <ul class="menu-up">
                     <li>
-                        <a href="../../index.html"><img src="../../img/logo.png" class="logo"></a>
+                        <a href="index.html"><img src="{% static 'main/img/logo.png' %}" class="logo"></a>
                     </li>
                     <li><i>На здоровье нельзя экономить!</i></li>
                     <li>+79028830469</li>
                 </ul>
             </header>
-            <div class="blueline">
-                <div class="menu-box">
-                    <ul class="menu">
-                        <li><span><a href="../../index.html">Главная</a></span></li>
-                        <li><span><a href="../about.html">О нас</a></span></li>
-                        <li><span><a href="../services.html">Услуги</a></span></li>
-                        <li><span><a href="../vacancies.html">Вакансии</a></span></li>
-                        <li><span><a href="../contact.html">Контакты</a></span></li>
-                        <li><div class="button"><a href="#popup">Запись на прием</a></div></li>
-                    </ul>
-                </div>
+        <div class="blueline">
+            <div class="menu-box">
+                <ul class="menu">
+                    <li><span><a href="{% url 'main:home' %}">Главная</a></span></li>
+                    <li><span><a href="{% url 'main:about' %}">О нас</a></span></li>
+                    <li><span><a href="{% url 'services:index' %}">Услуги</a></span></li>
+                    <li><span><a href="{% url 'main:vacancies' %}">Вакансии</a></span></li>
+                    <li><span><a href="{% url 'main:contact' %}">Контакты</a></span></li>
+                    <li><div class="button"><a href="#popup_sign">Войти</a></div></li>
+                    <li><div class="button"><a href="#popup_registration">Зарегистрироваться</a></div></li>
+                    <li><div class="button"><a href="{% url "users:logout" %}">Выйти</a></div></li>
+                    <li><div class="button"><a href="{% url "users:profile" %}">Личный кабинет</a></div></li>
+                    <li><div class="button"><a href="#popup">Запись на прием</a></div></li>
+                </ul>
             </div>
-        </section>
-        <section>
-            <div class="content"><a href="../index.html">Главная</a><a href="../services.html">/Услуги</a><a href="surgery.html">/Хирургия</a></div>
-        <div class="service">
-            <span>Врачи</span>
-            <br>
-            Федоров Дмитрий Владимирович, Черепанов Роман Владимирович.
-            <br>
-            <span>Что это?</span>
-            <br>
-            Хирурги́я — область медицины, изучающая острые и хронические заболевания, которые лечат при помощи оперативного (хирургического) метода.
-            <br>
         </div>
         </section>
+        {% block content %}{% endblock content %}
         <section>
             <div class="blueline">
                 <i class="line">На здоровье нельзя экономить!</i>
@@ -53,17 +48,17 @@
             <div class="bottom-menu">
                 <ul class="bottom-pr">
                     <li>
-                        <a href="../../index.html"><img src="../../img/logo.png" class="logo-2"></a>
+                        <a href="{% url 'main:home' %}"><img src="{% static 'main/img/logo.png' %}" class="logo-2"></a>
                         <br>
-                        Copyright @2023 Витаминка+
+                        Copyright @2024 Витаминка+
                     </li>
                     <li><ul class="bottom-list">
                         <li><div class="word-a">Компания Витаминка+</div></li>
-                        <li><a href="../../index.html">Главная</a></li>
-                        <li><a href="../about.html">О нас</a></li>
-                        <li><a href="../services.html">Услуги</a></li>
-                        <li><a href="../vacancies.html">Вакансии</a></li>
-                        <li><a href="../contact.html">Контакты</a></li>
+                        <li><a href="{% url 'main:home' %}">Главная</a></li>
+                        <li><a href="{% url 'main:about' %}">О нас</a></li>
+                        <li><a href="{% url 'services:index' %}">Услуги</a></li>
+                        <li><a href="{% url 'main:vacancies' %}">Вакансии</a></li>
+                        <li><a href="{% url 'main:contact' %}">Контакты</a></li>
                     </ul></li>
                     <li>Цены, указанные на сайте, не являются публичной офертой. 
                         Стоимость услуг устанавливается и оплачивается согласно прейскуранту поликлиники, 
@@ -73,7 +68,7 @@
                 </ul>
             </div>
             <div class="bottom"> 
-                <div class="button button-admin"><a href="#popup_admin">Вход как администратор</a></div>
+                <div class="button button-admin"><a href="{% url 'admin:index' %}">Админ панель</a></div>
             </div>
         </section>
         <section>
@@ -81,7 +76,7 @@
                 <a href="#header" class="popup_area"></a>
                 <div class="popup_body">
                     <div class="popup_content">
-                        <a href="#header" class="popup_close"><img src="../../img/cancel.jpg" class="cancel" align="right"></a>
+                        <a href="#header" class="popup_close"><img src="{% static 'main/img/cancel.jpg' %}" class="cancel" align="right"></a>
                         <div class="popup_title">Запись на прием</div>
                         <div class="text-field">
                             <form name="registrationForm" method="post" onsubmit="return validateForm()">
@@ -124,11 +119,11 @@
                     </div>
                 </div>
             </div>
-            <div id="popup_admin" class="popup">
+            <div id="popup_sign" class="popup">
                 <a href="#header" class="popup_area"></a>
                 <div class="popup_body">
                     <div class="popup_content">
-                        <a href="#header" class="popup_close"><img src="../../img/cancel.jpg" class="cancel" align="right"></a>
+                        <a href="#header" class="popup_close"><img src="{% static 'main/img/cancel.jpg' %}" class="cancel" align="right"></a>
                         <div class="popup_title">Авторизация</div>
                         <form name="registrationFormm" method="post" onsubmit="return validateFormm()">
                             <label class="text-field__label">Логин</label>
@@ -145,9 +140,7 @@
                 </div>
             </div>
         </section>
-        <script src="../../js/swiper-bundle.min.js"></script>
-        <script src="../../js/script.js"></script>
+        <script src="{% static 'main/js/swiper-bundle.min.js' %}"></script>
+        <script src="{% static 'main/js/script.js' %}"></script>
 	</body>
 </html>
-
-

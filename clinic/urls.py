@@ -7,8 +7,8 @@ from clinic import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls', namespace='main')),
-    path('services/', include('services.urls', namespace='services'))
-
+    path('services/', include('services.urls', namespace='services')),
+    path('user/', include('users.urls', namespace='user')),
 ] 
 
 if settings.DEBUG:
