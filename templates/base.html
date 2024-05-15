@@ -26,16 +26,19 @@
         <div class="blueline">
             <div class="menu-box">
                 <ul class="menu">
-                    <li><span><a href="{% url 'main:home' %}">Главная</a></span></li>
+                    
                     <li><span><a href="{% url 'main:about' %}">О нас</a></span></li>
                     <li><span><a href="{% url 'services:index' %}">Услуги</a></span></li>
                     <li><span><a href="{% url 'main:vacancies' %}">Вакансии</a></span></li>
                     <li><span><a href="{% url 'main:contact' %}">Контакты</a></span></li>
-                    <li><div class="button"><a href="#popup_sign">Войти</a></div></li>
-                    <li><div class="button"><a href="#popup_registration">Зарегистрироваться</a></div></li>
-                    <li><div class="button"><a href="{% url "users:logout" %}">Выйти</a></div></li>
-                    <li><div class="button"><a href="{% url "users:profile" %}">Личный кабинет</a></div></li>
-                    <li><div class="button"><a href="#popup">Запись на прием</a></div></li>
+
+                    <li><div class="button button-container"><a href="#popup_sign">Войти</a></div>
+                    <div class="button button-container"><a href="#popup_registration">Зарегистрироваться</a></div>
+
+                    <div class="button button-container"><a href="{% url "users:profile" %}">Личный кабинет</a></div>
+                    <div class="button button-container"><a href="#popup">Запись на прием</a></div>
+                    <div class="button button-container"><a href="{% url "users:logout" %}">Выйти</a></div></li>
+
                 </ul>
             </div>
         </div>
@@ -72,50 +75,45 @@
             </div>
         </section>
         <section>
-            <div id="popup" class="popup">
+            <div id="popup_registration" class="popup">
                 <a href="#header" class="popup_area"></a>
                 <div class="popup_body">
                     <div class="popup_content">
                         <a href="#header" class="popup_close"><img src="{% static 'main/img/cancel.jpg' %}" class="cancel" align="right"></a>
-                        <div class="popup_title">Запись на прием</div>
-                        <div class="text-field">
-                            <form name="registrationForm" method="post" onsubmit="return validateForm()">
-                                <label class="text-field__label">Фамилия:</label>
-                                <input placeholder="Surname" class="text-field__input" type="text" name="Secondname" required>
-                                <label class="text-field__label">Имя:</label>
-                                <input placeholder="Name" class="text-field__input" type="text" name="Firstname" required>
-                                <label class="text-field__label">Отчество:</label>
-                                <label class="text-field__label agree">У меня нет отчества</label>
-                                <input type="checkbox" name="Agreement" onclick="agreeForm(this.form)" >
-                                <input placeholder="Patronymic" class="text-field__input" type="text" name="Patronymic" required>
-                                <label for="services" class="text-field__label ">Выберите услугу:</label>
-                                <select id="services" class="text-field__label " name="Сlient_services" required>
-                                    <option value="ЛОР">ЛОР</option>
-                                    <option value="Хирургия">Хирургия</option>
-                                    <option value="Гинекология">Гинекология</option>
-                                    <option value="Аллергология-иммунология">Аллергология-иммунология</option>
-                                    <option value="Стоматология">Стоматология</option>
-                                    <option value="Офтальмология">Офтальмология</option>
-                                    <option value="Инфекционист">Инфекционист</option>
-                                    <option value="Гастроэнторология">Гастроэнторология</option>
-                                    <option value="УЗИ диагностика">УЗИ диагностика</option>
-                                    <option value="Кардиология">Кардиология</option>
-                                    <option value="Эндокринология">Эндокринология</option>
-                                    <option value="Физиотерапия">Физиотерапия</option>
-                                    <option value="Психиатрия">Психиатрия</option>
-                                    <option value="Генетик">Генетик</option>
-                                    <option value="Дерматология">Дерматология</option>
-                                    <option value="Неврология">Неврология</option>
-                                    <option value="Эндоскопия">Эндоскопия</option>
-                                    <option value="Травматология-ортопедия">Травматология-ортопедия</option>
-                                </select>
-                                <label class="text-field__label">Выберите дату:</label> 
-                                <input type="date" class="agree" name="date" required>
-                                <label class="text-field__label">Контактная почта/телефон:</label>
-                                <input placeholder="Contact email/number" class="text-field__input" type="text" name="Number_email" required>
-                                <input type="submit"  value="Записаться" class="submit">
-                            </form>
-                        </div>
+                        <div class="popup_title">Регистрация</div>
+                        <form name="" method="post" onsubmit="">
+
+                            <label class="text-field__label">Имя</label>
+                            <input placeholder="Name" class="text-field__input" type="text" name="Firstname" required>
+
+                            <label class="text-field__label">Фамилия</label>
+                            <input placeholder="Surname" class="text-field__input" type="text" name="Secondname" required>
+
+                            <label class="text-field__label">Отчество</label>
+                            <label class="text-field__label agree">У меня нет отчества</label>
+                            <input type="checkbox" name="Agreement" onclick="agreeForm(this.form)" > 
+                            <input placeholder="Patronymic" class="text-field__input" type="text" name="Patronymic" required>
+
+                            <label class="text-field__label">Имя пользователя</label>
+                            <input placeholder="Login" type="text" class="text-field__input" name="Login" required>
+
+                            <label class="text-field__label">Электронная почта</label>
+                            <input placeholder="Email" type="text" class="text-field__input" name="Email" required>
+
+                            <label class="text-field__label">Контактный телефон</label>
+                            <input placeholder="Contact number" class="text-field__input" type="text" name="Number" required>
+
+                            <label class="text-field__label">Дата рождения</label>
+                            <input type="date" class="agree" name="Dateofbirth" required>
+
+                            <label class="text-field__label">Пароль</label>
+                            <input placeholder="Password" type="text" class="text-field__input" name="Password" required>
+
+                            <label class="text-field__label">Подтверждение пароля</label>
+                            <input placeholder="Confirm password" type="text" class="text-field__input" name="Confirm_password" required>
+
+                            <input type="submit" value="Зарегистрироваться" class="submit" >
+                        </form>
                     </div>
                 </div>
             </div>
@@ -125,17 +123,42 @@
                     <div class="popup_content">
                         <a href="#header" class="popup_close"><img src="{% static 'main/img/cancel.jpg' %}" class="cancel" align="right"></a>
                         <div class="popup_title">Авторизация</div>
-                        <form name="registrationFormm" method="post" onsubmit="return validateFormm()">
-                            <label class="text-field__label">Логин</label>
-                            
-                            <input placeholder="Login" type="text" class="text-field__input" name="Login" required>
+                        <form name="" method="post" onsubmit="">
+
+                            <label class="text-field__label">Имя пользователя</label>
+                            <input placeholder="Username" type="text" class="text-field__input" name="Username" required>
                             
                             <label class="text-field__label">Пароль</label>
-                            
                             <input placeholder="Password" type="text" class="text-field__input" name="Password" required>
                             
                             <input type="submit" value="Войти" class="submit" >
                         </form>
+                    </div>
+                </div>
+            </div>
+            <div id="popup" class="popup">
+                <a href="#header" class="popup_area"></a>
+                <div class="popup_body">
+                    <div class="popup_content">
+                        <a href="#header" class="popup_close"><img src="{% static 'main/img/cancel.jpg' %}" class="cancel" align="right"></a>
+                        <div class="popup_title">Запись на прием</div>
+                        <div class="text-field">
+                            <form name="" method="post" onsubmit="">
+
+                                <label for="services" class="text-field__label ">Выберите услугу</label>
+                                <select id="services" class="text-field__label " name="Сlient_services" required>
+                                    {% tag_services as services %}
+                                    {% for service in services %}
+                                    <option value="{{ service.slug }}">{{ service.title }}</option>
+                                    {% endfor %}
+                                </select>
+
+                                <label class="text-field__label">Выберите дату</label> 
+                                <input type="date" class="agree" name="date" required>
+
+                                <input type="submit"  value="Записаться" class="submit">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

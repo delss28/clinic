@@ -3,49 +3,44 @@
 
 {% block content %}
 
-<div class="row">
-    <div class="container mt-5">
-        <div class="row">
-            <!-- Профиль с данными пользователя -->
-            <div class="col-md-5">
-                <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
-                    <h3 class="text-center mb-4">Профиль пользователя</h3>
-                    <form>
-                        <div class="row">
-                            <div class="col-md-12 mb-3 text-center">
-                                <img src="{% static "/main/img/baseavatar.jpg" %}"
-                                    alt="Аватар пользователя" class="img-fluid rounded-circle"
-                                    style="max-width: 150px;">
-                                <input type="file" class="form-control mt-3" id="avatar"
-                                    accept="image/*">
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="firstName" class="form-label">Имя*</label>
-                                <input type="text" class="form-control" id="firstName"
-                                    placeholder="Введите ваше имя" value="" required>
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="lastName" class="form-label">Фамилия*</label>
-                                <input type="text" class="form-control" id="lastName"
-                                    placeholder="Введите вашу фамилию" value="" required>
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="username" class="form-label">Имя пользователя*</label>
-                                <input type="text" class="form-control" id="username"
-                                    placeholder="Введите ваше имя пользователя" value="" required>
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="email" class="form-label">Email*</label>
-                                <input type="email" class="form-control" id="email"
-                                    placeholder="Введите ваш email *youremail@example.com" value=""
-                                    required>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-dark">Сохранить</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+<div class='profile_cho'>
+    <div class="profile">
+        <div class="profile_title">Профиль пользователя</div>
+        <form>
+            <img src="{% static "/main/img/baseavatar.jpg" %}" alt="Аватар пользователя" class="" style="max-width: 150px;">
+            <input type="file" class="" id="avatar" accept="image/*">
+
+            <label class="profile_text-field__label">Имя</label>
+            <input placeholder="Name" class="profile_text-field__input" type="text" name="Firstname">
+
+            <label class="profile_text-field__label">Фамилия</label>
+            <input placeholder="Surname" class="profile_text-field__input" type="text" name="Secondname">
+
+            <label class="profile_text-field__label">Отчество</label>
+            <input placeholder="Patronymic" class="profile_text-field__input" type="text" name="Patronymic">
+
+            <label class="profile_text-field__label">Имя пользователя</label>
+            <input placeholder="Username" type="text" class="profile_text-field__input"  name="Username" >
+
+            <label class="profile_text-field__label">Электронная почта</label>
+            <input placeholder="Email" type="text" class="profile_text-field__input" name="Email">
+
+            <label class="profile_text-field__label">Контактный телефон</label>
+            <input placeholder="Contact number" type="text" class="profile_text-field__input"  name="Number">
+
+            <label class="profile_text-field__label">Дата рождения</label>
+            <input type="Date" class="agree" name="Dateofbirth">
+
+            <button type="submit" class="submit">Сохранить</button>
+        </form>
+    </div>
+    <div class="profile_service">
+            <h4 class="accordion-header" id="heading1">
+                Заказ № 256 - 09 сентября 2023 9:04 |
+            </h4>
+            <h4 class="accordion-header" id="heading2">
+                Заказ № 248 - 01 августа 2023 11:28 |
+            </h4>
     </div>
 </div>
 {% endblock content %}
