@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block content %}
-
+<div class="content"><a href="{% url 'main:home' %}">Главная</a><a href="{% url 'users:profile' %}">/Личный кабинет</a></div>
 <div class='profile_cho'>
     <div class="profile">
         <div class="profile_title">Профиль пользователя</div>
         <form>
-            <img src="{% static "/main/img/baseavatar.jpg" %}" alt="Аватар пользователя" class="" style="max-width: 150px;">
-            <input type="file" class="" id="avatar" accept="image/*">
+            <img src="{% static "/main/img/baseavatar.jpg" %}" alt="Аватар пользователя" class="avatar" style="max-width: 475px;">
+            <input type="file" class="change_image" id="avatar" accept="image/*">
 
             <label class="profile_text-field__label">Имя</label>
             <input placeholder="Name" class="profile_text-field__input" type="text" name="Firstname">
@@ -35,12 +35,14 @@
         </form>
     </div>
     <div class="profile_service">
+        <div class="profile_title">История услуг</div>
             <h4 class="accordion-header" id="heading1">
-                Заказ № 256 - 09 сентября 2023 9:04 |
+                Заказ № 256 - 09 сентября 2023 9:04
             </h4>
             <h4 class="accordion-header" id="heading2">
-                Заказ № 248 - 01 августа 2023 11:28 |
+                Заказ № 248 - 01 августа 2023 11:28
             </h4>
+        </div>
     </div>
 </div>
 {% endblock content %}

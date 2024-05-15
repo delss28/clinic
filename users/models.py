@@ -1,4 +1,3 @@
-from email.mime import image
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -14,11 +13,12 @@ class User(AbstractUser):
     avatar = models.ImageField(upload_to='avatars_images', blank=True, null=True)
 
     class Meta:
+        db_table = 'user'
         verbose_name = 'Клиент'
         verbose_name_plural = 'Клиенты'
 
     def __str__(self):
-        return f'{self.email}'
+        return self.username
     
 
 #class Reception(models.Model):

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<li><div class="button button-container"><a href="#popup_sign">Войти</a></div>
+    <div id="popup_sign" class="popup">
+        <a href="#header" class="popup_area"></a>
+        <div class="popup_body">
+            <div class="popup_content">
+                <a href="#header" class="popup_close"><img src="{% static 'main/img/cancel.jpg' %}" class="cancel" align="right"></a>
+                <div class="popup_title">Авторизация</div>
+                <form action="{% url "user:login" %}" method="post">
+                    
+                    {% csrf_token %}
+                    {{form}}
+                    {% comment "" %}
+                    <label for="id_username" class="text-field__label">Имя пользователя</label>
+                    <input placeholder="Username" for="id_username"  type="text" class="text-field__input" name="username" required>
+                    
+                    <label for="id_password" class="text-field__label">Пароль</label>
+                    <input placeholder="Password" for="id_password"  type="password" class="text-field__input" name="password" required>
+{% endcomment %}
+                    <input type="submit" value="Войти" class="submit" >
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

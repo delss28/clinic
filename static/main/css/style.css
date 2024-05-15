@@ -562,3 +562,10 @@ body{
     justify-content: center;
     align-items:baseline; 
 }
+
+.change_image {
+    border: 1px solid light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+}
+.change_image:hover{
+    border-color: #3B83BD;
+}
