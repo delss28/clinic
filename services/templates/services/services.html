@@ -23,5 +23,6 @@
                     <a class="{% if not services.has_next %}disabled{% endif %}" href="{% if services.has_next %}?{% change_params page=services.next_page_number %}{% else %}#{% endif %}">Следующая</a>
             </div>
 {% endif %}
+
 {% endblock content %}
         
