@@ -556,6 +556,37 @@ body{
     border-color: #3B83BD;
 }
 
-.aboutt{
-    color:#FF9840;
-}
+/* Общие стили для всех сообщений */
+.message_mes {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  /* Стили для успешных сообщений */
+  .success_mes {
+    background-color: #dff0d8;
+    color: #468847;
+    border-color: #d4edda;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Стили для предупреждающих сообщений */
+  .warning_mes {
+    background-color: #fcf8e3;
+    color: #c09853;
+    border-color: #faebcc;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .messagess {
+    background-color: #DBD7D2;
+    color: #CAC4B0;
+    border-color: #CFCABA;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
