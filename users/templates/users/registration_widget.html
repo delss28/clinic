@@ -1,6 +1,9 @@
+{% load static %}
+
 <div class="popup_title">Регистрация</div>
                         <form action="{% url 'user:registration' %}" method="post">
                             {% csrf_token %}
+                            
                             <label for="id_first_name" class="text-field__label">Имя</label>
                             <input placeholder="Name" type="text" 
                                 class="text-field__input" id="id_first_name"  name="first_name" 
@@ -22,7 +25,7 @@
                             <input type="checkbox" name="Agreement" onclick="agreeForm(this.form)" > 
                             <input placeholder="Patronymic" type="text" 
                                 class="text-field__input" id="id_patronymic"  name="patronymic" 
-                                value="{% if form.patronymic.value %}{{ form.patronymic.value }}{% endif %}" required>
+                                value="{% if form.patronymic.value %}{{ form.patronymic.value }}{% endif %}">
                                 {% if form.patronymic.errors %}
                                 <div>{{form.patronymic.errors}}</div>
                                 {% endif %}
@@ -77,3 +80,4 @@
 
                             <input type="submit" value="Зарегистрироваться" class="submit" >
                         </form>
+                        <script src="{% static 'main/js/registr.js' %}"></script>

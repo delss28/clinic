@@ -7,7 +7,7 @@ from main.models import Service
 def services(request, services_slug=None):
     services = Service.objects.all()
 
-    paginator = Paginator(services,3)
+    paginator = Paginator(services,6)
     page = request.GET.get('page', 1)
 
     current_page = paginator.page(int(page))

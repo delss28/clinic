@@ -4,7 +4,12 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
-from users.forms import ProfileForm, UserLoginForm, UserRegistrationForm
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+
+
+from users.forms import ProfileForm, UserAppointmentForm, UserLoginForm, UserRegistrationForm
+from users.models import Appointment
 
 
 def registration(request):
@@ -13,8 +18,15 @@ def registration(request):
         if form.is_valid():
             form.save()
             user = form.instance
+
             auth.login(request,user)
-            messages.success(request, f"{user.username}, Вы успешно зарегистрированны вошли в аккаунт")
+
+            subject = 'Успешная регистрация'
+            message = render_to_string('email.html', {'username': user.username})
+            send_mail(subject, message, 'deliss2008@mail.ru', [user.email])
+
+            messages.success(request, f"{user.username}, Вы успешно зарегистрированны и вошли в аккаунт")
+
             return HttpResponseRedirect(reverse('main:home'))
     else:
         form = UserRegistrationForm()
@@ -59,9 +71,12 @@ def profile(request):
             return HttpResponseRedirect(reverse('user:profile'))
     else:
         form = ProfileForm(instance=request.user)
-    
+
+    appointments = Appointment.objects.filter(id_user=request.user)
+
     context = {
         'form': form,
+        'appointments': appointments,
     }
     return render(request,'users/profile.html',context)
 
@@ -70,3 +85,20 @@ def logout(request):
     messages.success(request, f"{request.user.username}, Вы вышли из аккаунта")
     auth.logout(request)
     return redirect(reverse('main:home'))
+
+@login_required
+def appointment(request):
+    if request.method == "POST":
+        form = UserAppointmentForm(data=request.POST)
+        if form.is_valid():
+            appointment = form.save()
+            appointment.save()
+            print(request.POST) 
+
+            messages.success(request, f"{request.user.username}, Вы успешно записались")
+            return HttpResponseRedirect(reverse('main:home'))
+    else:
+        form = UserAppointmentForm()
+
+    context = {'form': form}
+    return render(request, 'users/appointment.html', context)

@@ -73,12 +73,9 @@
     </div>
     <div class="profile_service">
         <div class="profile_title">История услуг</div>
-            <h4 class="accordion-header" id="heading1">
-                Заказ № 256 - 09 сентября 2023 9:04
-            </h4>
-            <h4 class="accordion-header" id="heading2">
-                Заказ № 248 - 01 августа 2023 11:28
-            </h4>
+            {% for appointment in appointments %}
+                <h4>{{ appointment }}</h4>
+            {% endfor %}
         </div>
     </div>
 </div>

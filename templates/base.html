@@ -13,6 +13,20 @@
         <link rel="stylesheet" href="{% static 'main/css/swiper-bundle.min.css' %}"/>
 	</head>
 	<body>
+        <center>
+            <div id="accessibility-menu" class="accessibility-menu">
+              <button id="menu-button" class="menu-button">☰</button>
+              <div id="accessibility-options" class="accessibility-options">
+                <button class="option" data-scheme="high-contrast">Увеличение контраста</button>
+                <button class="option" data-scheme="invert">Инверсия цвета</button>
+                <button class="option" data-scheme="daltonism">Эффект дальтонизма</button>
+                <button class="option" data-scheme="sepia">Эффект сепии</button>
+                <button class="option" data-scheme="high-contrast-text">Эффект смещения</button>
+                <button class="option" data-scheme="low-saturation">Уменьшение яркости</button>
+                <button class="option" data-scheme="default" style="width: 100%;">По умолчанию</button>
+              </div>
+            </div>
+        </center>
         <section>
             <header class="header">
                 <ul class="menu-up">
@@ -105,24 +119,7 @@
                 <div class="popup_body">
                     <div class="popup_content">
                         <a href="#header" class="popup_close"><img src="{% static 'main/img/cancel.jpg' %}" class="cancel" align="right"></a>
-                        <div class="popup_title">Запись на прием</div>
-                        <div class="text-field">
-                            <form name="" method="post" onsubmit="">
-
-                                <label for="services" class="text-field__label ">Выберите услугу</label>
-                                <select id="services" class="text-field__label " name="Сlient_services" required>
-                                    {% tag_services as services %}
-                                    {% for service in services %}
-                                    <option value="{{ service.slug }}">{{ service.title }}</option>
-                                    {% endfor %}
-                                </select>
-
-                                <label class="text-field__label">Выберите дату</label> 
-                                <input type="date" class="agree" name="date" required>
-
-                                <input type="submit"  value="Записаться" class="submit">
-                            </form>
-                        </div>
+                        {% include "users/appointment_widget.html" %}
                     </div>
                 </div>
             </div>

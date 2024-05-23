@@ -1,7 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 
-from users.models import User
+from main.models import Service
+from users.models import Appointment, User
 
 
 class UserLoginForm(AuthenticationForm):
@@ -32,7 +33,7 @@ class UserRegistrationForm(UserCreationForm):
 
     first_name = forms.CharField()
     last_name = forms.CharField()
-    patronymic = forms.CharField()
+    patronymic = forms.CharField(required=False)
     username = forms.CharField()
     email = forms.CharField()
     number = forms.CharField()
@@ -57,7 +58,22 @@ class ProfileForm(UserChangeForm):
     avatar = forms.ImageField(required=False)
     first_name = forms.CharField()
     last_name = forms.CharField()
-    patronymic = forms.CharField()
+    patronymic = forms.CharField(required=False)
     username = forms.CharField()
     email = forms.CharField()
     number = forms.CharField()
+
+
+class UserAppointmentForm(forms.ModelForm):
+    class Meta:
+        model = Appointment
+        fields = (
+            "id_user",
+            "id_service",
+            "appointment_date",
+            "appointment_time",
+        )
+    id_user = forms.ModelChoiceField(queryset=User.objects.all())
+    id_service = forms.ModelChoiceField(queryset=Service.objects.all())
+    appointment_date = forms.DateField()
+    appointment_time = forms.TimeField()

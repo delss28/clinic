@@ -1,11 +1,12 @@
 *{
     padding:0;margin:0;
+    box-sizing: border-box;
 }
 body{
     font-family: 'Asap', sans-serif;
     color: #505050;
     line-height: 1.5;
-    font-size: calc(10px + (4 + 4 * 0.7) * ((100vw - 320px) / 1280));;
+    font-size: calc(10px + (4 + 4 * 0.7) * ((100vw - 320px) / 1280));
     
 }
 .header{
@@ -53,7 +54,7 @@ body{
     display: flex;
     list-style: none;
     width: 100%;
-    margin: 0 8vw 0 8vw;
+    margin: 0 12vw 0 12vw;
     
 }
 .menu li{
@@ -325,8 +326,10 @@ body{
     width: calc(60px + (2 + 2 * 0.7) * ((100vw - 320px) / 1280));
 }
 .word-features{
+    font-size: calc(16px + (4 + 4 * 0.7) * ((100vw - 320px) / 1280));
     margin-top: -50px;
     margin-left: 70px;
+    line-height: 0.9;
 }
 
 .photo{
@@ -534,7 +537,7 @@ body{
 }
 
 .profile_service {
-    width: 25%;
+    width: 30%;
     display: inline-block; 
     margin: 0 auto;
     border: 1px solid #ccc;
@@ -556,7 +559,7 @@ body{
     border-color: #3B83BD;
 }
 
-/* Общие стили для всех сообщений */
+
 .message_mes {
     padding: 10px;
     display: flex;
@@ -565,28 +568,97 @@ body{
     position: relative;
   }
   
-  /* Стили для успешных сообщений */
-  .success_mes {
+
+.success_mes {
     background-color: #dff0d8;
     color: #468847;
     border-color: #d4edda;
     border-radius: 5px;
     border: 1px solid #ccc;
-  }
+}
   
-  /* Стили для предупреждающих сообщений */
-  .warning_mes {
+.warning_mes {
     background-color: #fcf8e3;
     color: #c09853;
     border-color: #faebcc;
     border-radius: 5px;
     border: 1px solid #ccc;
-  }
+}
 
-  .messagess {
+.messagess {
     background-color: #DBD7D2;
     color: #CAC4B0;
     border-color: #CFCABA;
     border-radius: 5px;
     border: 1px solid #ccc;
+}
+
+
+html.high-contrast {
+    filter: contrast(200%);
+}
+
+html.invert {
+    filter: invert(100%);
+}
+
+html.daltonism {
+    filter: grayscale(100%);
+}
+
+html.sepia {
+    filter: sepia(100%);
+}
+
+html.low-brightness {
+    filter: brightness(70%);
+}
+
+html.high-contrast-text {
+    filter: hue-rotate(90deg);
+}
+
+html.daltonism-colors {
+    filter: url(filters.svg#protanopia);
+}
+
+html.low-saturation {
+    filter: saturate(50%);
+}
+
+.option{
+    margin-bottom: 10px;  
+    width: 16%; 
+    height: 80px; 
+    color: black; 
+    font-size:calc(16px + (4 + 4 * 0.7) * ((100vw - 320px) / 1280));
+    font-family: Montserrat Alternates; 
+    border-radius: 10px; 
+    background-color: white;}
+
+  .menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 36px;
+    color: #000;
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #969696;
+    border-radius: 15px;
   }
+
+.accessibility-options {
+    width:80%;
+    display: none;
+    position: relative;
+    top: 0px;
+    right: 0;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+

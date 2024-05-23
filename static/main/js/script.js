@@ -25,57 +25,69 @@ new Swiper('.image-slider',{
     
 });
 
-function validateFormm() {
-    let login = document.forms["registrationFormm"]["Login"].value;
-    let password = document.forms["registrationFormm"]["Password"].value;
 
-    if (login == "admin" & password == "admin" ) {
-        alert("Вы авторизовались");
-        return true;
-    }
-    alert("Неверный логин или пароль");
-    return false;
-}
 
-function validateForm() {
-    let surname = document.forms["registrationForm"]["Secondname"].value;
-    let name = document.forms["registrationForm"]["Firstname"].value;
-    let patronymic = document.forms["registrationForm"]["Patronymic"].value;
-    let email = document.forms["registrationForm"]["Number_email"].value;
-    let agree =document.forms["registrationForm"]["Agreement"].value;
-
-    if (!/^[а-яА-ЯёЁ]+$/.test(surname)) {
-        alert("Введите фамилию на кириллице");
-        return false;
-    }
-    
-    if (!/^[а-яА-ЯёЁ]+$/.test(name)) {
-        alert("Введите имя на кириллице");
-        return false;
-    }
-    
-    if (!agree){
-        if (!/^[а-яА-ЯёЁ]+$/.test(patronymic)) {
-            alert("Введите отчество на кириллице");
-            return false;
-        }
-    }
-    if(!/^[0-9]+$/.test(email)){
-        if (!/^\S+@\S+.+\S$/.test(email)) {
-            alert("Введите корректную почту или номер телефона");
-            return false;
-        }
-    }
-
-    alert("Вы отправили запись на прием");
-    return true;
-}
-
-function agreeForm(f) {
-    if (f.Agreement.checked) f.Patronymic.disabled = 1 
-    else 
-    f.Patronymic.disabled = 0
-    Patronymic=""
-}
 var today = new Date().toISOString().split('T')[0];
-document.getElementsByName("date")[0].setAttribute('min', today);
+document.getElementsByName("appointment_date")[0].setAttribute('min', today);
+
+  
+const menuButton = document.getElementById('menu-button');
+const accessibilityOptions = document.getElementById('accessibility-options');
+
+menuButton.addEventListener('click', () => {
+  accessibilityOptions.style.display = accessibilityOptions.style.display === 'none' ? 'block' : 'none';
+});
+
+// Добавляем обработчики для выбора опции
+const options = document.querySelectorAll('.option');
+options.forEach(option => {
+  option.addEventListener('click', () => {
+    const scheme = option.dataset.scheme;
+    applyScheme(scheme);
+    
+  });
+});
+
+function applyScheme(scheme) {
+  // Удаляем все предыдущие классы
+  document.documentElement.classList.remove('high-contrast', 'invert', 'daltonism', 'sepia', 'high-contrast-text', 'low-saturation', 'default');
+
+  // Добавляем выбранный класс
+  document.documentElement.classList.add(scheme);
+}
+
+
+
+const slides = document.querySelectorAll('.slide');
+    const navButtons = document.querySelectorAll('.slider-nav button');
+    let currentSlide = 0;
+
+    function showSlide(n) {
+        slides.forEach((slide, index) => {
+            if (index === n) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+
+        navButtons.forEach((button, index) => {
+            if (index === n) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+
+        currentSlide = n;
+    }
+
+    navButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            showSlide(index);
+        });
+    });
+
+    setInterval(() => {
+        showSlide((currentSlide + 1) % slides.length);
+    }, 3000);
