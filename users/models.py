@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+
 from main.models import Service
 
 # Create your models here.
@@ -30,9 +31,28 @@ class Appointment(models.Model):
     appointment_date = models.DateField(blank=True, null=True)
     appointment_time = models.TimeField(blank=True, null=True)
 
+    process = "В обрaботке"
+    confirmed = "Подтвержден"
+    deleted = "Отменен"
+    status_choices = [
+        (process, "В обработке"),
+        (confirmed, "Подтвержден"),
+        (deleted, "Отменен"),
+    ]
+        
+
+    status = models.CharField(
+        max_length=12, 
+        choices=status_choices, 
+        default=process,)
+
+
     class Meta:
         verbose_name = 'Прием'
         verbose_name_plural = 'Приемы'
 
+    def is_upperclass(self):
+        return self.status in {self.confirmed, self.deleted}
+    
     def __str__(self):
-        return f"Прием {self.id_user} на {self.appointment_date} в {self.appointment_time} - {self.id_service}"
+        return f"Прием {self.id_user} на {self.appointment_date} в {self.appointment_time} - {self.id_service} | Статус: {self.status}"

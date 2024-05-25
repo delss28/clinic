@@ -77,3 +77,25 @@ class UserAppointmentForm(forms.ModelForm):
     id_service = forms.ModelChoiceField(queryset=Service.objects.all())
     appointment_date = forms.DateField()
     appointment_time = forms.TimeField()
+
+    def clean(self):
+        cleaned_data = super().clean()
+        appointment_date = cleaned_data.get("appointment_date")
+        appointment_time = cleaned_data.get("appointment_time")
+        id_service = cleaned_data.get("id_service")
+
+        
+        if appointment_date and appointment_time and id_service:
+            existing_appointment = Appointment.objects.filter(
+                id_service=id_service,
+                appointment_date=appointment_date,
+                appointment_time=appointment_time,
+                status='Подтвержден',
+            ).exists()
+            if existing_appointment:
+                raise forms.ValidationError(
+                    "На указанное время и дату уже записан другой клиент.",
+                    code='invalid',
+                )
+        return cleaned_data
+    

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 from django.conf.global_settings import AUTH_USER_MODEL
@@ -22,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4@bl1!f*1u%0u&ho^nhky2$91q18^pm!nov%xxy+u&z3@4)9!-'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = int(os.environ.get("DEBUG", default=0))
 
 ALLOWED_HOSTS = ['*']
 
@@ -160,3 +161,6 @@ EMAIL_HOST_USER = 'deliss2008@mail.ru'
 EMAIL_HOST_PASSWORD = 'bEhme687pPrCxjbBaKcu'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+
+
